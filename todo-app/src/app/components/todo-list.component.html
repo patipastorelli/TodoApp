@@ -1,0 +1,29 @@
+<main class="main">
+    <div class="content">
+        <div class="left-side">
+            <h2>Add new item to the TODO list</h2>
+
+            <!-- Input to add a new todo -->
+            <div class="add-todo">
+                <input
+                type="text"
+                [(ngModel)]="newTodo"
+                placeholder="New task"
+                (keyup.enter)="addTodo()"
+                />
+                <button (click)="addTodo()">Add</button>
+            </div>
+        </div>
+        <!-- Display the list -->
+        <div class="divider" role="separator" aria-label="Divider"></div>
+        <div class="right-side">
+            <h2>TODO List</h2>
+            <ul>
+                <li *ngFor="let todo of todos">
+                    {{ todo.title }}
+                    <button (click)="deleteTodo(todo.id)">Delete</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
